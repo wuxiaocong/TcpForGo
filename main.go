@@ -21,7 +21,7 @@ func main() {
 		res, _ := json.Marshal(CheckServer(str))
 		fmt.Fprintf(w, string(res))
 	})
-	http.ListenAndServe(":1234", nil)
+	http.ListenAndServe("127.0.0.1:1234", nil)
 }
 
 func CheckServer(uri string) result {
