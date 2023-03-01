@@ -17,6 +17,7 @@ type result struct {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		str := strings.Replace(string(r.URL.Path), "/", "", 1)
 		res, _ := json.Marshal(CheckServer(str))
 		fmt.Fprintf(w, string(res))
